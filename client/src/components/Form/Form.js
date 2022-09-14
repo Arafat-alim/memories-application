@@ -12,7 +12,9 @@ const Form = () => {
     tags: "",
     selectedFile: "",
   });
-  const handleSubmit = () => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
   const clear = () => {};
   return (
     <Paper className={classes.paper}>
@@ -20,7 +22,7 @@ const Form = () => {
         autoComplete="off"
         noValidate
         onSubmit={handleSubmit}
-        className={classes.form}
+        className={`${classes.root} ${classes.form}`}
       >
         <Typography variant="h6">Create a Memory</Typography>
 
@@ -86,7 +88,7 @@ const Form = () => {
         <Button
           color="secondary"
           variant="contained"
-          size="large"
+          size="small"
           fullWidth
           onClick={clear}
         >
