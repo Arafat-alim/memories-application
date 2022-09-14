@@ -5,6 +5,7 @@ import Posts from "./components/Posts/Posts";
 import Form from "./components/Form/Form";
 import useStyles from "./styles";
 import { useDispatch } from "react-redux";
+import { getPosts } from "./actions/posts";
 
 const App = () => {
   const classes = useStyles();
@@ -12,7 +13,7 @@ const App = () => {
   const dispatch = useDispatch();
   // use effect helps us to mount the data and update the data
   useEffect(() => {
-    dispatch();
+    dispatch(getPosts());
   }, [dispatch]);
 
   return (
@@ -32,7 +33,7 @@ const App = () => {
         <Container>
           <Grid
             container
-            justify="space-between"
+            justifyContent="space-between"
             alignItems="stretch"
             spacing={3}
           >

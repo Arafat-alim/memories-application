@@ -6,13 +6,13 @@ import postRoutes from "./routes/posts.js";
 const app = express();
 
 //! we are using express js middleware
-app.use("/posts", postRoutes);
+app.use(cors());
 
 //! both are used for post and put request
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
-app.use(cors());
 
+app.use("/posts", postRoutes);
 //! connection of mongoDB
 const CONNECTION_URL =
   "mongodb+srv://arafatalim:9903632928Af@cluster0.w06atei.mongodb.net/?retryWrites=true&w=majority";
