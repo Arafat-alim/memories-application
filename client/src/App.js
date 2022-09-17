@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, AppBar, Grid, Typography, Grow } from "@material-ui/core";
 import memoriez from "./images/memories.png";
 import Posts from "./components/Posts/Posts";
@@ -9,6 +9,9 @@ import { getPosts } from "./actions/posts";
 
 const App = () => {
   const classes = useStyles();
+
+  // ! creating a state for demostration purposes
+  const [currentId, setCurrentId] = useState(null);
 
   const dispatch = useDispatch();
   // use effect helps us to mount the data and update the data
@@ -38,10 +41,10 @@ const App = () => {
             spacing={3}
           >
             <Grid item xs={12} lg={7}>
-              <Posts />
+              <Posts setCurrentId={setCurrentId} />
             </Grid>
             <Grid item xs={12} lg={4}>
-              <Form />
+              <Form currentId={currentId} setCurrentId={setCurrentId} />
             </Grid>
           </Grid>
         </Container>
